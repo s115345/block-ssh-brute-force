@@ -21,7 +21,3 @@ def block_ip(ip):
                 'has already been blocked' % ip)
 
     blocked.add(ip)
-    print(blocked)
-  
-    block_ip(ip)
-    
