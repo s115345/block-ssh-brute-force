@@ -1,47 +1,26 @@
 import fwblock
 
-with open('sshdlog', 'r') as f:
-    f_contents = f.read()
-    print(f_contents)
+def readLogfiles():
+    
+    with open('sshdlog', 'r') as f:
+        f_contents = f.read()
+        print(f_contents)
+        return f_contents
+# als je functie wilt sluiten moet je minder whitespace gebruiken
+def readLinesWithInvalid():
+    SshOutput = list((""))
+    for InvalidLines in f_contents():  #voor elke lijn in de logfile
+        if "invalid user" in InvalidLines: SshOutput.append(InvalidLines) #als invalid user word gevonden in de lijn => in SshOutput list insteken
+
+def readInvalidIpAdresses():
    
-        
-    import ipaddress
-    
-    fwblock.block_ip('51.140.228.73')
-    
-#     def block_ip(ip):
-#         '''
-#         This function adds a rule to the firewall to block all traffic from
-#         the given IP address.
-#         ip: IP address to block traffic from.
-#         '''
-#         global blocked
-#         
-#         try:
-# 
-# 
-#             ipaddress.ip_address(ip) # this will fail if an invalid IP address is passed
-#         except ValueError:
-#                 validip = False
-#         if validip:
-#                 ipString = str(ip) + ''
-#                 
-#         if '142.93.141.126' in ipString:
-#             blocked =blocked.add(ip)   
-# 
-#         if ip in blocked:
-#                     raise RuntimeError('You\'re making the firewall slow! IP Address %s '
-#                     'has already been blocked' % ip)
-#                 
-#         def print_blocked():
-#             print (blocked)
-#             f.write("test")
-#             f.close()
-            
-            
-                
-                
-         
+    InvalidUser = list((""))
+    for lines in f_contents: #lines doorlopen in logfile
+        split_elements=lines.split("")#splitten in elementen
+        ip=split_elements[-4]#van "invalid" element naar ip element gaan
+        InvalidUser.append(ip)#Ip element toevoegen aan InvalidUser list
 
-            
+    
+    
 
+    
