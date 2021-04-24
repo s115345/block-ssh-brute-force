@@ -30,8 +30,10 @@ def InvalidIpCount():
         fwblock.block_ip(InvalidUser)#ip blokkeren
         print(InvalidUser + " Ip has been found 3 times or more, Ip has been blocked")
         
-                
-        
+readLogfiles()          
+readLinesWithInvalid()
+readInvalidIpAdresses()
+InvalidIpCount()
 
 
     
