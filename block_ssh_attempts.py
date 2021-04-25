@@ -18,17 +18,25 @@ for line in SshOutPut:
     IpAdress.append(ip)
 
 
-IpChecker=set(IpAdress)
+res = 0
+IpCounter=dict(SshOutPut)
+K=IpAdress
+for key in IpCounter:
+    if IpCounter[key] == K:
+        res = res + 1
+        
+        
+# IpCounter=dict(IpAdress)
+# 
+# for i in IpAdress:
+#     IpCounter[i] = IpCounter.get(i, 0) + 1
+   
 
-for NieuweIp in IpChecker:
-    counter=0
-    for Iplijst in IpAdress:
-        if NieuweIp==Iplijst:
-            counter+=1
-
-    if counter>=3:
-      raise RuntimeError('The Ip has been dedected 3 times already' % ip)
-    fwblock.block_ip(a)       
+    if res>=3:
+    
+        raise RuntimeError('The Ip has been dedected 3 times already' % ip)
+        
+    fwblock.block_ip(key)       
         
             
 
